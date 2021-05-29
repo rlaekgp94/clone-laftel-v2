@@ -1,5 +1,5 @@
 var express = require("express");
-var login = require("./userController");
+var userController = require("./userController");
 var router = express.Router();
 // test route
 router.get("/", function (req, res) {
@@ -7,11 +7,12 @@ router.get("/", function (req, res) {
 });
 
 // route to handle user registration
-router.post("/register", login.register);
-router.post("/login", login.login);
+router.post("/register", userController.register);
+//router.post("/login", login.login);
 
 module.exports = router;
 
+// axios 호출 예시
 // axios.post("http:/loacalhost:3000/login", {
 //   data: {
 //     email: "haha@naver.com",
