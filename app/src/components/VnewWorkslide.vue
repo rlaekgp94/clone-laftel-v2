@@ -1,47 +1,46 @@
 <template>
-  <div id="mainSlide">
-    <div id="mainSlideWrap" v-once class="swiper-container">
-      <h2 class="mainSlideTitle">100만명이 감상한 애니 추천</h2>
+  <div id="mainNewWorkSlide">
+    <div id="mainNewWorkWrap" v-once class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다01</div>
+          <div class="slide-thumbnail-title">월요일 애니메이션입니다01</div>
         </div>
         <div class="swiper-slide">
           <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다02</div>
+          <div class="slide-thumbnail-title">월요일 애니메이션입니다02</div>
         </div>
         <div class="swiper-slide">
           <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다03</div>
+          <div class="slide-thumbnail-title">월요일 애니메이션입니다03</div>
         </div>
         <div class="swiper-slide">
           <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다04</div>
+          <div class="slide-thumbnail-title">월요일 애니메이션입니다04</div>
         </div>
         <div class="swiper-slide">
           <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다05</div>
+          <div class="slide-thumbnail-title">월요일 애니메이션입니다05</div>
         </div>
         <div class="swiper-slide">
           <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다06</div>
+          <div class="slide-thumbnail-title">월요일 애니메이션입니다06</div>
         </div>
         <div class="swiper-slide">
           <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다07</div>
+          <div class="slide-thumbnail-title">월요일 애니메이션입니다07</div>
         </div>
         <div class="swiper-slide">
           <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다08</div>
+          <div class="slide-thumbnail-title">월요일 애니메이션입니다08</div>
         </div>
         <div class="swiper-slide">
           <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다09</div>
+          <div class="slide-thumbnail-title">월요일 애니메이션입니다09</div>
         </div>
         <div class="swiper-slide">
           <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다10</div>
+          <div class="slide-thumbnail-title">월요일 애니메이션입니다10</div>
         </div>
       </div>
     </div>
@@ -79,9 +78,9 @@ export default {
   },
   mounted() {
     const navigation = $(
-        "#mainSlide .swiper-button-prev-unique,#mainSlide .swiper-button-next-unique"
+        "#mainNewWorkSlide .swiper-button-prev-unique,#mainNewWorkSlide .swiper-button-next-unique"
       ),
-      slideWrap = $("#mainSlide");
+      slideWrap = $("#mainNewWorkSlide");
 
     navigation.hide();
     slideWrap.hover(
@@ -92,17 +91,20 @@ export default {
         navigation.fadeOut();
       }
     );
-    new Swiper("#mainSlide .swiper-container", {
-      // slidesPerView: 7,
+
+    new Swiper("#mainNewWorkSlide .swiper-container", {
+      //   slidesPerView: 7,
       spaceBetween: 8,
       // slidesPerGroup: 6,
       speed: 1200,
       // loop: true,
       // loopFillGroupWithBlank: true,
       navigation: {
-        nextEl: "#mainSlide .swiper-button-next-unique",
-        prevEl: "#mainSlide .swiper-button-prev-unique",
+        nextEl: "#mainNewWorkSlide .swiper-button-next-unique",
+        prevEl: "#mainNewWorkSlide .swiper-button-prev-unique",
       },
+      observer: true,
+      observeParents: true,
       breakpoints: {
         "@0.50": {
           slidesPerView: 1.75,
@@ -126,20 +128,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#mainSlide {
+#mainNewWorkSlide {
   width: 100%;
-  height: 15.5rem;
-  margin: 3rem 0;
+  height: 12.5rem;
   position: relative;
   overflow: hidden;
-}
-
-.mainSlideTitle {
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: -0.05rem;
-  margin-bottom: 0.5rem;
-  height: 2rem;
 }
 
 .swiper-container {
@@ -182,7 +175,7 @@ export default {
 .swiper-button-next-unique {
   height: 10.4rem;
   position: absolute;
-  top: 2.25rem;
+  top: 0;
   z-index: 2;
   cursor: pointer;
   width: 2rem;
@@ -205,10 +198,6 @@ export default {
 
 // tablet
 @media screen and (max-width: 1024px) {
-  .mainSlideTitle {
-    font-size: 1.35rem;
-    margin-bottom: 0.25rem;
-  }
   .swiper-container {
     margin-left: 1rem;
   }

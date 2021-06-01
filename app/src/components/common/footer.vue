@@ -45,7 +45,7 @@
             <path d="m12.3 13l7.7 7.7 7.7-7.7 2.3 2.4-10 10-10-10z"></path>
           </svg>
         </div>
-        <div class="footer-info-toggle">
+        <div class="footer-info-tap">
           <p>
             상호&#58; 리디 주식회사 &#47; 대표&#58; 배기식<br />
 
@@ -68,26 +68,23 @@ import $ from "jquery";
 export default {
   name: "Footer",
   mounted() {
-    let infoTabBtn = $(".footer-info"),
-      infoTabToggle = $(".footer-info-toggle");
-
-    infoTabToggle.hide();
-    infoTabBtn.click(function () {
-      infoTabToggle.show();
+    let btn = $(".footer-inner-bottom > .footer-info"),
+      tap = $(".footer-info-tap");
+    btn.click(function () {
+      tap.toggle();
     });
-
-    // infoTabBtn.click(function () {
-    //   if (infoTabToggle.css("display" == "none")) {
-    //     infoTabToggle.show();
-    //   } else {
-    //     infoTabToggle.hide();
-    //   }
-    // });
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
 footer {
   width: 100%;
   padding: 3rem 0;
@@ -109,6 +106,7 @@ footer {
   margin-bottom: 2.5rem;
   position: relative;
   .footer-logo {
+    width: 5rem;
     fill: #fff;
     transform: scale(1.5);
     margin: 0.5rem 0 0 1rem;
@@ -182,8 +180,8 @@ footer {
       fill: #fff;
     }
   }
-  .footer-info-toggle {
-    // display: none;
+  .footer-info-tap {
+    display: none;
     height: auto;
     color: #fff;
     font-size: 0.7rem;
@@ -197,34 +195,25 @@ footer {
   footer {
     padding: 3.25rem 0;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
   .footer-wrap {
-    width: 96vw;
-    display: flex;
-    flex-direction: column;
     position: relative;
     align-items: center;
   }
 
   .footer-inner-top {
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 2.5rem;
-    position: relative;
     .footer-logo {
-      fill: #fff;
+      width: 4rem;
       margin: 0;
       transform: scale(1.4);
     }
     .footer-inner-com {
-      display: flex;
       align-items: flex-start;
       flex-direction: column;
-      width: 96.5vw;
+      width: 95vw;
       margin: 2rem 0 0 0;
       .footer-about {
         display: block;
@@ -238,66 +227,14 @@ footer {
         margin-bottom: 2rem;
       }
       .footer-sns-wrap {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin: 0 auto;
-        width: 7rem;
-        a {
-          border: 1px solid #fff;
-          border-radius: 10rem;
-          width: 2rem;
-          height: 2rem;
-          position: relative;
-          &:not(:last-child) {
-            margin-right: 0.5rem;
-          }
-          &:hover {
-            background: #fff;
-          }
-          &:hover .footer-sns-items {
-            fill: #000;
-          }
-        }
-        .footer-sns-items {
-          fill: #fff;
-          width: 3rem;
-          transform: scale(0.6);
-          position: absolute;
-          top: -12.5%;
-          left: -22.5%;
-        }
       }
     }
   }
 
   .footer-inner-bottom {
-    display: flex;
-    flex-direction: column;
+    align-items: center;
     margin-left: 1rem;
-    .footer-info {
-      &:hover {
-        cursor: pointer;
-      }
-      letter-spacing: 0.05rem;
-      font-size: 0.85rem;
-      display: flex;
-      color: #fff;
-      .tab-icon {
-        width: 2rem;
-        margin: -0.4rem 0 0 -0.5rem;
-        transform: scale(0.35);
-        fill: #fff;
-      }
-    }
-    .footer-info-toggle {
-      // display: none;
-      height: auto;
-      color: #fff;
-      font-size: 0.7rem;
-      line-height: 1.25rem;
-      padding: 1rem 0 1rem;
-    }
   }
 }
 
@@ -307,34 +244,15 @@ footer {
     width: 90vw;
   }
 
+  .footer-inner-top {
+    .footer-inner-com {
+      width: 90vw;
+    }
+  }
+
   .footer-inner-bottom {
-    display: flex;
-    flex-direction: column;
+    width: 90vw;
     align-items: flex-start;
-    margin-left: 1rem;
-    .footer-info {
-      &:hover {
-        cursor: pointer;
-      }
-      letter-spacing: 0.05rem;
-      font-size: 0.85rem;
-      display: flex;
-      color: #fff;
-      .tab-icon {
-        width: 2rem;
-        margin: -0.4rem 0 0 -0.5rem;
-        transform: scale(0.35);
-        fill: #fff;
-      }
-    }
-    .footer-info-toggle {
-      // display: none;
-      height: auto;
-      color: #fff;
-      font-size: 0.7rem;
-      line-height: 1.25rem;
-      padding: 1rem 0 1rem;
-    }
   }
 }
 </style>

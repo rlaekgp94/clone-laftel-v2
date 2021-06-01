@@ -1,7 +1,5 @@
 <template>
   <Header />
-  <!-- <VuserTab /> -->
-  <!-- <VuserMenuIn /> -->
   <router-view />
   <Footer />
 </template>

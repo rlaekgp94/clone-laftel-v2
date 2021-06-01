@@ -1,6 +1,6 @@
 <template>
   <header>
-    <VuserTab v-if="showDeskUserTap" @click="showDeskUserTap = false" />
+    <VuserTab v-show="show" v-click-outside="onClickOutside" />
     <div class="desktop-gnb-wrap">
       <router-link to="/">
         <svg width="66" height="17" class="desktop-logo">
@@ -34,10 +34,7 @@
                   ></path>
                 </svg>
               </div>
-              <div
-                class="desktop-userin-button"
-                @click="showDeskUserTab = true"
-              >
+              <div class="desktop-userin-button" @click.stop="onClickOutside">
                 <p class="desktop-userin-id">USER ID</p>
                 <svg width="24" height="24" class="tab-icon">
                   <path
@@ -90,8 +87,25 @@
 <script>
 import $ from "jquery";
 import VuserTab from "./VuserTab";
+import vClickOutside from "click-outside-vue3";
 export default {
   name: "Header",
+  data() {
+    return {
+      show: false,
+    };
+  },
+  directives: {
+    clickOutside: vClickOutside.directive,
+  },
+  methods: {
+    onClickOutside(value) {
+      if (typeof value === "boolean") this.show = value;
+      else {
+        this.show = !this.show;
+      }
+    },
+  },
   mounted() {
     let nav = $("header"),
       navText = $(".desktop-gnb-wrap a,.desktop-userin-id"),
@@ -265,6 +279,7 @@ header {
           margin-right: 1rem;
         }
         .tm-menu-icon-wrap {
+          cursor: pointer;
           display: flex;
           position: relative;
           .tm-menu-text {

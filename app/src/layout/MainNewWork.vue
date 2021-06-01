@@ -1,217 +1,150 @@
 <template>
-  <div id="mainNewWork">
-    <div id="mainNewWorkWrap" v-once class="swiper-container">
+  <div id="MainNewWork">
+    <div class="tab-list-wrap">
       <h2 class="mainSlideTitle">요일별 신작</h2>
+      <ul class="tab-list-button">
+        <li class="tab-link current" data-tab="tab-mon">월</li>
+        <li class="tab-link" data-tab="tab-tues">화</li>
+        <li class="tab-link" data-tab="tab-wednes">수</li>
+        <li class="tab-link" data-tab="tab-thurs">목</li>
+        <li class="tab-link" data-tab="tab-fri">금</li>
+        <li class="tab-link" data-tab="tab-satur">토</li>
+        <li class="tab-link" data-tab="tab-sun">일</li>
+      </ul>
 
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다01</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다02</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다03</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다04</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">애니메이션 제목입니다05</div>
-        </div>
+      <div id="tab-mon" class="tab-content current">
+        <VnewWorkslide />
       </div>
-    </div>
-    <div class="swiper-button-prev-unique">
-      <svg width="40" height="40" class="prev-icon">
-        <path
-          d="M10.6048 36.0619C11.4113 36.8684 12.7187 36.8684 13.5252 36.0619L28.1268 21.4602C28.9333 20.6538 28.9333 19.3463 28.1268 18.5399L13.5252 3.93824C12.7187 3.1318 11.4113 3.13181 10.6048 3.93824C9.7984 4.74467 9.79839 6.05213 10.6048 6.85857L23.7463 20.0001L10.6048 33.1416C9.79839 33.948 9.79839 35.2555 10.6048 36.0619Z"
-        ></path>
-      </svg>
-    </div>
-    <div class="swiper-button-next-unique">
-      <svg width="40" height="40" class="next-icon">
-        <path
-          d="M10.6048 36.0619C11.4113 36.8684 12.7187 36.8684 13.5252 36.0619L28.1268 21.4602C28.9333 20.6538 28.9333 19.3463 28.1268 18.5399L13.5252 3.93824C12.7187 3.1318 11.4113 3.13181 10.6048 3.93824C9.7984 4.74467 9.79839 6.05213 10.6048 6.85857L23.7463 20.0001L10.6048 33.1416C9.79839 33.948 9.79839 35.2555 10.6048 36.0619Z"
-        ></path>
-      </svg>
+
+      <div id="tab-tues" class="tab-content">
+        <VnewWorkslide />
+      </div>
+
+      <div id="tab-wednes" class="tab-content">
+        <VnewWorkslide />
+      </div>
+
+      <div id="tab-thurs" class="tab-content">
+        <VnewWorkslide />
+      </div>
+
+      <div id="tab-fri" class="tab-content">
+        <VnewWorkslide />
+      </div>
+
+      <div id="tab-satur" class="tab-content">
+        <VnewWorkslide />
+      </div>
+
+      <div id="tab-sun" class="tab-content">
+        <VnewWorkslide />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import $ from "jquery";
-import Swiper from "swiper/bundle";
-import "swiper/swiper-bundle.css";
-import Vthumbnail from "../components/Vthumbnail";
-// import laftelList from "../assets/data/laftel.json";
+import VnewWorkslide from "../components/VnewWorkslide";
 export default {
-  name: "MainSlide",
-  data() {
-    return {
-      // laftelItems: laftelList.laftel,
-      // itemTitle: "",
-      // itemSrc: "",
-    };
+  name: "MainNewWork",
+  components: {
+    VnewWorkslide,
   },
   mounted() {
-    const navigation = $(
-        "#mainNewWork .swiper-button-prev-unique,#mainNewWork .swiper-button-next-unique"
-      ),
-      slideWrap = $("#mainNewWork");
+    $("ul.tab-list-button li").click(function () {
+      let tab_id = $(this).attr("data-tab");
 
-    navigation.hide();
-    slideWrap.hover(
-      function () {
-        navigation.fadeIn();
-      },
-      function () {
-        navigation.fadeOut();
-      }
-    );
+      $("ul.tab-list-button li").removeClass("current");
+      $(".tab-content").removeClass("current");
 
-    new Swiper("#mainNewWork .swiper-container", {
-      //   slidesPerView: 7,
-      spaceBetween: 8,
-      // slidesPerGroup: 6,
-      speed: 1200,
-      loop: true,
-      // loopFillGroupWithBlank: true,
-      navigation: {
-        nextEl: "#mainNewWork .swiper-button-next-unique",
-        prevEl: "#mainNewWork .swiper-button-prev-unique",
-      },
-      breakpoints: {
-        "@0.50": {
-          slidesPerView: 2.25,
-          slidesPerGroup: 2,
-        },
-        "@1.00": {
-          slidesPerView: 3.13,
-          slidesPerGroup: 3,
-        },
-        "@1.50": {
-          slidesPerView: 6.13,
-          slidesPerGroup: 6,
-        },
-      },
+      $(this).addClass("current");
+      $("#" + tab_id).addClass("current");
     });
-  },
-  components: {
-    Vthumbnail,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-#mainNewWork {
+#MainNewWork {
   width: 100%;
-  height: 15.5rem;
-  margin: 3rem 0;
-  position: relative;
-  overflow: hidden;
+  margin-top: 3rem;
+}
+
+.tab-list-wrap {
+  width: 100%;
+  height: 100%;
 }
 
 .mainSlideTitle {
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.05rem;
-  margin-bottom: 0.5rem;
-  height: 2rem;
-}
-
-.swiper-container {
-  width: auto;
-  height: 100%;
   margin-left: 2.5rem;
-  display: flex;
-  flex-direction: column;
 }
 
-.swiper-wrapper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  width: 100%;
-  height: 12.5rem;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  .slide-thumbnail-img {
-    width: 100%;
-  }
-  .slide-thumbnail-title {
-    height: 2rem;
-    font-size: 1.15rem;
-    font-weight: 400;
-    margin-top: 0.5rem;
-  }
-}
-
-.swiper-button-prev-unique {
-  left: 0;
-}
-.swiper-button-next-unique {
-  right: 0;
-}
-.swiper-button-prev-unique,
-.swiper-button-next-unique {
-  height: 10.4rem;
-  position: absolute;
-  top: 2.25rem;
-  z-index: 2;
-  cursor: pointer;
-  width: 2rem;
+.tab-list-button {
+  width: 37.5rem;
+  margin: 1rem 0 1rem 2.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 0.25rem;
-  background: rgba(0, 0, 0, 0.4);
-  .prev-icon {
-    transform: rotate(180deg) scale(0.75);
-    fill: #fff;
-    margin-left: 0.25rem;
+  justify-content: space-between;
+  .tab-link {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    width: 3.75rem;
+    height: 3.75rem;
+    background: #d0d0d0;
+    border-radius: 10rem;
+    cursor: pointer;
+    line-height: 3.75rem;
   }
-  .next-icon {
-    fill: #fff;
-    transform: scale(0.75);
-    margin-right: 0.25rem;
+  .tab-link.current {
+    background: #8168ff;
   }
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.current {
+  display: inherit;
 }
 
 // tablet
 @media screen and (max-width: 1024px) {
+  #MainNewWork {
+    margin: 1.5rem 0;
+  }
   .mainSlideTitle {
     font-size: 1.35rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .swiper-container {
     margin-left: 1rem;
   }
-  .swiper-slide {
-    .slide-thumbnail-title {
-      font-size: 0.875rem;
-    }
-  }
 
-  .swiper-button-prev-unique,
-  .swiper-button-next-unique {
-    opacity: 0;
+  .tab-list-button {
+    width: 25rem;
+    margin: 1rem 0 1rem 1rem;
+    .tab-link {
+      font-size: 1.25rem;
+      width: 3rem;
+      height: 3rem;
+      line-height: 3rem;
+    }
   }
 }
 
 //mobile 480px기준
 @media screen and (max-width: 768px) {
-  .swiper-slide {
-    .slide-thumbnail-title {
-      font-size: 0.75rem;
+  .tab-list-button {
+    width: 28rem;
+    margin: 1rem 0 1rem 1rem;
+    .tab-link {
+      font-size: 1.25rem;
+      width: 3.25rem;
+      height: 3.25rem;
+      line-height: 3.25rem;
     }
   }
 }

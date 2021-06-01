@@ -149,7 +149,7 @@ export default {
         .user-info-level-wrap {
           .info-icon {
             width: 2.5rem;
-            hieght: 2.5rem;
+            height: 2.5rem;
             margin: 0.125rem 0 0 -0.5625rem;
             transform: scale(0.35);
             fill: #fff;
@@ -181,7 +181,7 @@ export default {
       }
       .next-icon {
         width: 2rem;
-        hieght: 2.5rem;
+        height: 2.5rem;
         margin: -0.3125rem 0 0 0;
         transform: scale(0.5);
       }
