@@ -2,6 +2,7 @@ var models = require("../models");
 
 //var connection = databaseConnect();
 var crypto = require("crypto"); //비밀번호 암호화
+var { v4 } = require("uuid");
 
 //회원가입 SQL 컨트롤러
 register = function (req, res) {
@@ -15,7 +16,7 @@ register = function (req, res) {
 
   models.user
     .create({
-      guid: Math.round(new Date().valueOf() * Math.random()) + "", // 임시 guid
+      guid: v4().replace(/-/gi, ""), //uuidv4 정규식으로 최소화(-제거)
       email: req.body.email,
       pwd: hashPassword,
       mdate: today,
@@ -32,8 +33,32 @@ register = function (req, res) {
       console.log(err);
     });
 };
-
 //로그인 SQL 컨트롤러
+login = async function (req, res, next) {
+  let result = await models.user.findOne({
+    where: {
+      email: req.body.email,
+    },
+  });
+
+  let dbPassword = result.dataValues.pwd;
+  let inputPassword = req.body.password;
+  let salt = result.dataValues.salt;
+  let hashPassword = crypto
+    .createHash("sha512")
+    .update(inputPassword + salt)
+    .digest("hex");
+  if (dbPassword === hashPassword) {
+    console.log("비밀번호 일치");
+    res.redirect("/user");
+  } else {
+    console.log("비밀번호 불일치");
+    res.redirect("/user/login");
+    console.log(dbPassword);
+    //console.log(hashPassword);
+  }
+};
+
 // exports.login = function (req, res) {
 
 //   models.user.find({
@@ -75,5 +100,6 @@ register = function (req, res) {
 //   );
 // };
 module.exports = {
+  login,
   register,
 };

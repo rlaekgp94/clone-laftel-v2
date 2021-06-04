@@ -9,6 +9,8 @@ router.get("/", function (req, res) {
 // route to handle user registration
 router.post("/register", userController.register);
 //router.post("/login", login.login);
+// 로그인 POST
+router.post("/login", userController.login);
 
 module.exports = router;
 
