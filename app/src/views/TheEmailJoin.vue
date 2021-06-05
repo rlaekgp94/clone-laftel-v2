@@ -3,32 +3,27 @@
     <div class="email-join-wrap">
       <VmainLinkLogo />
       <div class="email-join-box">
-        <div class="email-join-check-box">
-          <div>
-            <label for="allagree">다음 약관에 모두 동의</label>
-            <input
-              id="allagree"
-              class="check-box"
-              type="checkbox"
-              v-model="selectAll"
-            />
-          </div>
-
-          <ul>
-            <li class="check-list" v-for="content in check" :key="content">
-              <label
-                ><router-link to="#" class="agree-link">{{
-                  content.agreeLink
-                }}</router-link
-                >{{ content.agreeText }} ({{ content.Item }})</label
-              >
-              <input
-                type="checkbox"
-                v-model="selected"
-                :value="content.id"
-                number
+        <div class="agree-wrap">
+          <div class="check-all check-line">
+            <label
+              >다음 약관에 모두 동의<input
                 class="check-box"
-              />
+                type="checkbox"
+                v-model="selectAll"
+            /></label>
+          </div>
+          <div class="contour-line"></div>
+          <ul class="check-list">
+            <li class="check-line" v-for="content in check" :key="content">
+              <label
+                ><a href="#" class="agree-link">{{ content.agreeLink }}</a
+                >{{ content.agreeText }} ({{ content.Item }})<input
+                  type="checkbox"
+                  v-model="selected"
+                  :value="content.id"
+                  number
+                  class="check-box" /></label
+              ><!-- Router 서비스이용약관,개인정보 처리방침 페이지 연결 보류 -->
             </li>
           </ul>
         </div>
@@ -46,7 +41,7 @@ export default {
       check: [
         {
           id: "1",
-          agreeLink: "라프텔 이용약관",
+          agreeLink: "라프텔 이용약관 ",
           agreeText: "동의",
           Item: "필수",
         },
@@ -112,7 +107,6 @@ export default {
   align-items: center;
   flex-direction: column;
   padding: 2rem;
-  border: 1px solid red;
 }
 
 .email-join-box {
@@ -124,16 +118,52 @@ export default {
   padding: 2rem;
 }
 
-// .email-join-check-box {
-//   display: flex;
-// }
-// .check-list {
-//   display: flex;
-//   flex-direction: column;
-// }
-.agree-link {
-  color: red;
+// 동의 체크박스 wrap
+.agree-wrap {
+  width: 100%;
 }
+
+// 공통 체크박스
+.check-line {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  height: 1.5rem;
+  label {
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+    input {
+      float: right;
+    }
+  }
+}
+
+// 전체 동의와 필수,선택동의 구분선
+.contour-line {
+  margin: 1rem 0;
+  height: 0.0625rem;
+  width: 100%;
+  background: rgb(238, 238, 238);
+}
+
+// 전체 동의 체크박스
+.check-all {
+  font-weight: bold;
+}
+
+.check-list {
+  li:not(:first-child) {
+    margin-top: 1rem;
+  }
+  color: #505050;
+}
+
+// 동의약관 링크
+.agree-link {
+  text-decoration-line: underline;
+  color: #505050;
+}
+
 .btn-next {
   margin-top: 2rem;
   background: #816bff;
