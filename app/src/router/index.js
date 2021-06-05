@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import TheMain from "../views/TheMain.vue";
 import TheLogin from "../views/TheLogin.vue";
 import TheEmailLogin from "../views/TheEmailLogin.vue";
+import TheApiLogin from "../views/TheApiLogin.vue";
 
 const routes = [
   {
@@ -19,6 +20,12 @@ const routes = [
     path: "/login/email-login",
     name: "email-login",
     component: TheEmailLogin,
+    meta: { hideHeader: true, hideFooter: true },
+  },
+  {
+    path: "/login/api-login",
+    name: "api-login",
+    component: TheApiLogin,
     meta: { hideHeader: true, hideFooter: true },
   },
 ];
