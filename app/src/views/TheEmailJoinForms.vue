@@ -45,7 +45,9 @@
               />
             </div>
           </div>
-          <button type="submit" class="btn-next">다음</button>
+          <router-link :to="{ name: 'email-join-verification' }">
+            <button type="submit" class="btn-next">다음</button>
+          </router-link>
         </form>
       </div>
     </div>
