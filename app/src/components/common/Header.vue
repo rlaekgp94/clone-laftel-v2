@@ -1,8 +1,8 @@
 <template>
   <header>
     <VuserTab v-show="show" v-click-outside="onClickOutside" />
-    <div v-if="blackActive" id="tm-menu-wrap" @click="blackToggle"></div>
-    <VuserMenuIn :open="navOpen" v-click-outside="offTogglenav" />
+    <div v-if="blackActive" id="tm-menu-mask" @click="blackToggle"></div>
+    <VuserMenuOut :open="navOpen" v-click-outside="offTogglenav" />
     <div class="desktop-gnb-wrap">
       <router-link to="/">
         <svg width="66" height="17" class="desktop-logo">
@@ -90,7 +90,7 @@
 <script>
 import $ from "jquery";
 import VuserTab from "./VuserTab";
-import VuserMenuIn from "./VuserMenuIn";
+import VuserMenuOut from "./VuserMenuOut";
 import vClickOutside from "click-outside-vue3";
 export default {
   name: "Header",
@@ -148,13 +148,13 @@ export default {
   },
   components: {
     VuserTab,
-    VuserMenuIn,
+    VuserMenuOut,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-#tm-menu-wrap {
+#tm-menu-mask {
   position: fixed;
   z-index: 30;
   top: 0;
@@ -163,18 +163,6 @@ export default {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   transition: opacity 0.3s ease;
-}
-.slide {
-  &-leave-active,
-  &-enter-active {
-    transition: 0.25s;
-  }
-  &-enter {
-    transform: translate(-100%, 0);
-  }
-  &-leave-to {
-    transform: translate(100%, 0);
-  }
 }
 
 header {
