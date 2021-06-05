@@ -4,19 +4,33 @@
       <VmainLinkLogo />
       <div class="email-join-box">
         <div class="email-join-check-box">
-          <div class="text-check">
-            다음 약관에 모두 동의
-            <label>
-              <input type="checkbox" class="check-box" />
-              <div class="check-box-icon">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 5H5v14h14V5zM5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5z"
-                  ></path>
-                </svg>
-              </div>
-            </label>
+          <div>
+            <label for="allagree">다음 약관에 모두 동의</label>
+            <input
+              id="allagree"
+              class="check-box"
+              type="checkbox"
+              v-model="selectAll"
+            />
           </div>
+
+          <ul>
+            <li class="check-list" v-for="content in check" :key="content">
+              <label
+                ><router-link to="#" class="agree-link">{{
+                  content.agreeLink
+                }}</router-link
+                >{{ content.agreeText }} ({{ content.Item }})</label
+              >
+              <input
+                type="checkbox"
+                v-model="selected"
+                :value="content.id"
+                number
+                class="check-box"
+              />
+            </li>
+          </ul>
         </div>
         <button type="submit" class="btn-next">다음</button>
       </div>
@@ -27,6 +41,48 @@
 <script>
 import VmainLinkLogo from "../components/VmainLinkLogo";
 export default {
+  data() {
+    return {
+      check: [
+        {
+          id: "1",
+          agreeLink: "라프텔 이용약관",
+          agreeText: "동의",
+          Item: "필수",
+        },
+        {
+          id: "2",
+          agreeLink: "개인정보 수집 및 이용",
+          agreeText: "에 대한 안내",
+          Item: "필수",
+        },
+        {
+          id: "3",
+          agreeText: "맞춤 할인 및 이벤트 소식 메일 수신",
+          Item: "선택",
+        },
+      ],
+      selected: [],
+    };
+  },
+  computed: {
+    selectAll: {
+      get: function () {
+        return this.check ? this.selected.length == this.check.length : false;
+      },
+      set: function (value) {
+        const selected = [];
+
+        if (value) {
+          this.check.forEach(function (content) {
+            selected.push(content.id);
+          });
+        }
+
+        this.selected = selected;
+      },
+    },
+  },
   components: {
     VmainLinkLogo,
   },
@@ -56,6 +112,7 @@ export default {
   align-items: center;
   flex-direction: column;
   padding: 2rem;
+  border: 1px solid red;
 }
 
 .email-join-box {
@@ -67,6 +124,16 @@ export default {
   padding: 2rem;
 }
 
+// .email-join-check-box {
+//   display: flex;
+// }
+// .check-list {
+//   display: flex;
+//   flex-direction: column;
+// }
+.agree-link {
+  color: red;
+}
 .btn-next {
   margin-top: 2rem;
   background: #816bff;
