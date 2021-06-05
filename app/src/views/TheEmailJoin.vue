@@ -10,7 +10,36 @@
                 class="check-box"
                 type="checkbox"
                 v-model="selectAll"
-            /></label>
+              />
+              <svg
+                viewBox="0 0 24 24"
+                class="checkbox-icon unchecked"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M19 5H5v14h14V5zM5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5z"
+                ></path>
+              </svg>
+              <svg
+                viewBox="0 0 24 24"
+                class="checkbox-icon checked"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M19 5H5v14h14V5zM5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5z"
+                ></path>
+
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M17.625 7.72a1 1 0 01.156 1.405l-6 7.5a1 1 0 01-1.488.082l-3.5-3.5a1 1 0 111.414-1.414l2.71 2.71 5.302-6.628a1 1 0 011.406-.156z"
+                ></path>
+              </svg>
+            </label>
           </div>
           <div class="contour-line"></div>
           <ul class="check-list">
@@ -22,7 +51,33 @@
                   v-model="selected"
                   :value="content.id"
                   number
-                  class="check-box" /></label
+                  class="check-box" /><svg
+                  viewBox="0 0 24 24"
+                  class="checkbox-icon unchecked"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M19 5H5v14h14V5zM5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5z"
+                  ></path>
+                </svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="checkbox-icon checked"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M19 5H5v14h14V5zM5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5z"
+                  ></path>
+
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M17.625 7.72a1 1 0 01.156 1.405l-6 7.5a1 1 0 01-1.488.082l-3.5-3.5a1 1 0 111.414-1.414l2.71 2.71 5.302-6.628a1 1 0 011.406-.156z"
+                  ></path></svg></label
               ><!-- Router 서비스이용약관,개인정보 처리방침 페이지 연결 보류 -->
             </li>
           </ul>
@@ -123,19 +178,46 @@ export default {
   width: 100%;
 }
 
-// 공통 체크박스
+// checkbox 커스텀
 .check-line {
   font-size: 1rem;
   line-height: 1.5rem;
   height: 1.5rem;
+  position: relative;
   label {
     width: 100%;
     display: inline-block;
     cursor: pointer;
-    input {
-      float: right;
+    .check-box {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    // check시 uncheckbox icon 없어짐
+    input[type="checkbox"]:checked + .unchecked {
+      display: none;
     }
   }
+}
+
+.checkbox-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.unchecked {
+  z-index: 10;
+  background: #fff;
+}
+.checked {
+  fill: rgb(129, 107, 255);
 }
 
 // 전체 동의와 필수,선택동의 구분선
