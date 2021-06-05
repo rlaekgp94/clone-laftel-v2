@@ -28,7 +28,7 @@
           </button>
 
           <button :disabled="code.length < 6" type="submit" class="btn-next">
-            다음
+            완료
           </button>
         </form>
       </div>
