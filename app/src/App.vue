@@ -25,5 +25,8 @@ export default {
 body {
   font-size: 1rem;
   font-family: "Noto Sans KR", sans-serif;
+  button {
+    font-family: "Noto Sans KR", sans-serif;
+  }
 }
 </style>
