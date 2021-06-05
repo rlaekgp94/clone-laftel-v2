@@ -1,11 +1,11 @@
 <template>
-  <Header />
+  <Header v-if="!$route.meta.hideHeader" />
   <router-view />
-  <Footer />
+  <Footer v-if="!$route.meta.hideFooter" />
 </template>
 
 <script>
-import Header from "./components/common/header";
+import Header from "./components/common/Header";
 import Footer from "./components/common/footer";
 export default {
   name: "app",
@@ -25,5 +25,8 @@ export default {
 body {
   font-size: 1rem;
   font-family: "Noto Sans KR", sans-serif;
+  button {
+    font-family: "Noto Sans KR", sans-serif;
+  }
 }
 </style>
