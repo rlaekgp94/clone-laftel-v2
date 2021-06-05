@@ -82,7 +82,9 @@
             </li>
           </ul>
         </div>
-        <button type="submit" class="btn-next">다음</button>
+        <button :disabled="selected < 3" type="submit" class="btn-next">
+          다음
+        </button>
       </div>
     </div>
   </div>
@@ -262,6 +264,9 @@ export default {
   transition: all 0.08s ease-in 0s;
   &:hover {
     background: #6e58ff;
+  }
+  &:disabled {
+    background: #e2e2e2;
   }
 }
 
