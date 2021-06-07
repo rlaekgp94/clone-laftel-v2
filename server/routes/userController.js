@@ -3,7 +3,7 @@ const models = require("../models");
 const crypto = require("crypto"); //비밀번호 암호화
 const { v4 } = require("uuid");
 const nodemailer = require("nodemailer");
-const { info } = require("console");
+require("dotenv").config();
 
 //회원가입 SQL 컨트롤러
 register = function (req, res) {
@@ -88,8 +88,8 @@ sendEmail = async function (req, res) {
     port: 587,
     secure: false,
     auth: {
-      user: "leeyoujun61@gmail.com", //process.env.NODEMAILER_USER,
-      pass: "!cand01tjun", //process.env.NODEMAILER_PASS,
+      user: process.env.NODEMAILER_USER, //process.env.NODEMAILER_USER,
+      pass: process.env.NODEMAILER_PASS, //process.env.NODEMAILER_PASS,
     },
   });
 

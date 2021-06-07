@@ -3,8 +3,9 @@ var bodyParser = require("body-parser");
 var api = require("./routes/index");
 var app = express();
 
-//badyParser
+const env = process.env;
 
+//badyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

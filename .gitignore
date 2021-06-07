@@ -180,4 +180,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+
+# custom file
+sequelize.json
+server/models/index.js
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,vue,node
