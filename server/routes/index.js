@@ -11,6 +11,8 @@ router.post("/register", userController.register);
 //router.post("/login", login.login);
 // 로그인 POST
 router.post("/login", userController.login);
+router.post("/sendEmail", userController.sendEmail);
+router.post("/updatePwd", userController.updatePwd);
 
 module.exports = router;
 
