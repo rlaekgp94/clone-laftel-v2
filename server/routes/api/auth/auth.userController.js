@@ -1,9 +1,22 @@
-const models = require("../models");
-//var connection = databaseConnect();
+const models = require("../../../models");
+const jwt = require("jsonwebtoken");
 const crypto = require("crypto"); //비밀번호 암호화
 const { v4 } = require("uuid");
 const nodemailer = require("nodemailer");
+const { rejects } = require("assert");
+const { resolve } = require("path");
 require("dotenv").config();
+
+//토큰키 인증 API 구현
+/*
+    GET /api/auth/check
+*/
+check = (req, res) => {
+  res.json({
+    success: true,
+    info: req.decoded,
+  });
+};
 
 //회원가입 SQL 컨트롤러
 register = function (req, res) {
@@ -14,7 +27,7 @@ register = function (req, res) {
     .createHash("sha512")
     .update(inputPassword + salt)
     .digest("hex");
-
+  models.user.count({ where: { email: req.body.email } });
   models.user
     .create({
       guid: v4().replace(/-/gi, ""), //uuidv4 정규식으로 최소화(-제거)
@@ -51,12 +64,16 @@ login = async function (req, res, next) {
     .digest("hex");
   if (dbPassword === hashPassword) {
     console.log("비밀번호 일치");
-    res.redirect("/");
+    //토큰 발급
+    const token = jwt.sign({ username: req.body.email }, "secret_key", {
+      algorithm: "HS256",
+      expiresIn: "7d",
+    });
+    res.status(200).json({ status: true, token: token });
   } else {
     console.log("비밀번호 불일치");
     res.redirect("/user/login");
-    console.log(dbPassword);
-    console.log(hashPassword);
+    res.status(401).json({ status: false, result: "login fail" });
   }
 };
 
@@ -88,8 +105,8 @@ sendEmail = async function (req, res) {
     port: 587,
     secure: false,
     auth: {
-      user: process.env.NODEMAILER_USER, //process.env.NODEMAILER_USER,
-      pass: process.env.NODEMAILER_PASS, //process.env.NODEMAILER_PASS,
+      user: process.env.NODEMAILER_USER,
+      pass: process.env.NODEMAILER_PASS,
     },
   });
 
@@ -143,6 +160,7 @@ module.exports = {
   register,
   sendEmail,
   updatePwd,
+  check,
 };
 
 //------------------------------------
