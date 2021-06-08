@@ -9,6 +9,7 @@
             <label for="id">이메일</label>
             <div class="int-area">
               <input
+                v-model="id"
                 placeholder="example@gmail.com"
                 type="email"
                 name="id"
@@ -23,6 +24,7 @@
             <label for="pw">비밀번호</label>
             <div class="int-area">
               <input
+                v-model="pw"
                 placeholder="8자 이상 영문/숫자/특수문자 중 2가지 포함"
                 type="password"
                 name="pw"
@@ -36,6 +38,7 @@
             <label for="pw-con">비밀번호 확인</label>
             <div class="int-area">
               <input
+                v-model="pwcon"
                 placeholder="비밀번호를 다시 한 번 입력해주세요."
                 type="password"
                 name="pw-con"
@@ -46,7 +49,9 @@
             </div>
           </div>
           <router-link :to="{ name: 'email-join-verification' }">
-            <button type="submit" class="btn-next">다음</button>
+            <button :disabled="disabledActive" type="submit" class="btn-next">
+              다음
+            </button>
           </router-link>
         </form>
       </div>
@@ -59,8 +64,20 @@ import VmainLinkLogo from "../components/VmainLinkLogo";
 export default {
   data() {
     return {
+      id: "",
+      pw: "",
+      pwcon: "",
       //   necessary: [],
     };
+  },
+  computed: {
+    disabledActive: function () {
+      if (this.id > 4 && this.pw > 4 && this.pwcon > 4) {
+        return false;
+      } else {
+        return true;
+      }
+    },
   },
   components: {
     VmainLinkLogo,
