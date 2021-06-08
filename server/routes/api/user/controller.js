@@ -1,3 +1,8 @@
 exports.list = (req, res) => {
-  console.log("a");
+  res.status(200).json({
+    success: true,
+    message: "success",
+    data: {},
+    t: req.refreshedToken,
+  });
 };

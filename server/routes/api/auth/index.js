@@ -1,4 +1,5 @@
 var express = require("express");
+var jwt_check = require("../../../middlewares/auth");
 var userController = require("./auth.userController");
 var router = express.Router();
 
@@ -21,4 +22,6 @@ router.post("/sendEmail", userController.sendEmail);
 //3. auth 테이블에서 해당 auth_key를 가진 데이터를 가진 데이터를 저장
 router.post("/updatePwd", userController.updatePwd);
 
+router.use("/check", jwt_check);
+router.get("/check", userController.check);
 module.exports = router;
