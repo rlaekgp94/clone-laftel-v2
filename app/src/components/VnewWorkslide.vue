@@ -1,46 +1,21 @@
 <template>
-  <div id="mainNewWorkSlide">
+  <div class="mainNewWorkSlide">
     <div id="mainNewWorkWrap" v-once class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">월요일 애니메이션입니다01</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">월요일 애니메이션입니다02</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">월요일 애니메이션입니다03</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">월요일 애니메이션입니다04</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">월요일 애니메이션입니다05</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">월요일 애니메이션입니다06</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">월요일 애니메이션입니다07</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">월요일 애니메이션입니다08</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">월요일 애니메이션입니다09</div>
-        </div>
-        <div class="swiper-slide">
-          <Vthumbnail class="slide-thumbnail-img" />
-          <div class="slide-thumbnail-title">월요일 애니메이션입니다10</div>
+        <div
+          class="swiper-slide"
+          v-for="(item, index) in laftelItems"
+          :key="index"
+        >
+          <Vthumbnail
+            class="slide-thumbnail-img"
+            :style="{
+              backgroundImage: 'url(' + item.itemScr + ')',
+            }"
+          />
+          <div class="slide-thumbnail-title">
+            {{ item.itemTitle }}
+          </div>
         </div>
       </div>
     </div>
@@ -66,21 +41,19 @@ import $ from "jquery";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import Vthumbnail from "../components/Vthumbnail";
-// import laftelList from "../assets/data/laftel.json";
 export default {
   name: "MainSlide",
   data() {
     return {
-      // laftelItems: laftelList.laftel,
-      // itemTitle: "",
-      // itemSrc: "",
+      laftelItems: this.newWorkItems[this.newWorkDays],
     };
   },
+  props: ["newWorkItems", "newWorkDays"],
   mounted() {
     const navigation = $(
-        "#mainNewWorkSlide .swiper-button-prev-unique,#mainNewWorkSlide .swiper-button-next-unique"
+        ".mainNewWorkSlide .swiper-button-prev-unique,.mainNewWorkSlide .swiper-button-next-unique"
       ),
-      slideWrap = $("#mainNewWorkSlide");
+      slideWrap = $(".mainNewWorkSlide");
 
     navigation.hide();
     slideWrap.hover(
@@ -92,7 +65,7 @@ export default {
       }
     );
 
-    new Swiper("#mainNewWorkSlide .swiper-container", {
+    new Swiper(".mainNewWorkSlide .swiper-container", {
       //   slidesPerView: 7,
       spaceBetween: 8,
       // slidesPerGroup: 6,
@@ -100,8 +73,8 @@ export default {
       // loop: true,
       // loopFillGroupWithBlank: true,
       navigation: {
-        nextEl: "#mainNewWorkSlide .swiper-button-next-unique",
-        prevEl: "#mainNewWorkSlide .swiper-button-prev-unique",
+        nextEl: ".mainNewWorkSlide .swiper-button-next-unique",
+        prevEl: ".mainNewWorkSlide .swiper-button-prev-unique",
       },
       observer: true,
       observeParents: true,
@@ -128,11 +101,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#mainNewWorkSlide {
+.mainNewWorkSlide {
   width: 100%;
-  height: 12.5rem;
+  height: 14rem;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .swiper-container {
@@ -150,16 +123,18 @@ export default {
 
 .swiper-slide {
   width: 100%;
-  height: 12.5rem;
+  height: auto;
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   .slide-thumbnail-img {
     width: 100%;
   }
   .slide-thumbnail-title {
-    height: 2rem;
-    font-size: 1.15rem;
+    height: 4rem;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
     font-weight: 400;
     margin-top: 0.5rem;
   }

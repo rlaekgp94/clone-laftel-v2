@@ -13,31 +13,31 @@
       </ul>
 
       <div id="tab-mon" class="tab-content current">
-        <VnewWorkslide />
+        <VnewWorkslide :newWorkItems="newWorkItems" :newWorkDays="'mon'" />
       </div>
 
       <div id="tab-tues" class="tab-content">
-        <VnewWorkslide />
+        <VnewWorkslide :newWorkItems="newWorkItems" :newWorkDays="'tues'" />
       </div>
 
       <div id="tab-wednes" class="tab-content">
-        <VnewWorkslide />
+        <VnewWorkslide :newWorkItems="newWorkItems" :newWorkDays="'wednes'" />
       </div>
 
       <div id="tab-thurs" class="tab-content">
-        <VnewWorkslide />
+        <VnewWorkslide :newWorkItems="newWorkItems" :newWorkDays="'thurs'" />
       </div>
 
       <div id="tab-fri" class="tab-content">
-        <VnewWorkslide />
+        <VnewWorkslide :newWorkItems="newWorkItems" :newWorkDays="'fri'" />
       </div>
 
       <div id="tab-satur" class="tab-content">
-        <VnewWorkslide />
+        <VnewWorkslide :newWorkItems="newWorkItems" :newWorkDays="'satur'" />
       </div>
 
       <div id="tab-sun" class="tab-content">
-        <VnewWorkslide />
+        <VnewWorkslide :newWorkItems="newWorkItems" :newWorkDays="'sun'" />
       </div>
     </div>
   </div>
@@ -46,8 +46,14 @@
 <script>
 import $ from "jquery";
 import VnewWorkslide from "../components/VnewWorkslide";
+import newWorkList from "../assets/data/newWorkList.json";
 export default {
   name: "MainNewWork",
+  data() {
+    return {
+      newWorkItems: newWorkList.newWork,
+    };
+  },
   components: {
     VnewWorkslide,
   },
