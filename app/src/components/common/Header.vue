@@ -1,6 +1,8 @@
 <template>
   <header>
     <VuserTab v-show="show" v-click-outside="onClickOutside" />
+    <div v-if="blackActive" id="tm-menu-mask" @click="blackToggle"></div>
+    <VuserMenuOut :open="navOpen" v-click-outside="offTogglenav" />
     <div class="desktop-gnb-wrap">
       <router-link to="/">
         <svg width="66" height="17" class="desktop-logo">
@@ -34,7 +36,7 @@
                   ></path>
                 </svg>
               </div>
-              <div class="desktop-userin-button" @click.stop="onClickOutside">
+              <div class="desktop-userin-button" @click.stop="offClickOutside">
                 <p class="desktop-userin-id">USER ID</p>
                 <svg width="24" height="24" class="tab-icon">
                   <path
@@ -45,7 +47,8 @@
             </div>
           </div>
           <!-- 데스크탑 사용자 로그인상태 -->
-          <a href="#" class="desktop-userout-button">로그인/가입</a
+          <router-link to="/login" class="desktop-userout-button"
+            >로그인/가입</router-link
           ><!--데스크탑 사용자 로그아웃상태 -->
           <!-- 연결페이지 생성 이후에 router-link로 변경하기 -->
         </div>
@@ -66,7 +69,7 @@
             ></path>
           </svg>
         </div>
-        <div class="tm-menu-icon-wrap">
+        <div class="tm-menu-icon-wrap" @click="onTogglenav">
           <svg width="30" height="30" class="tm-menu-text">
             <path
               d="M0 10h1.588l1.76 2.832L5.108 10h1.588v6.696H5.233v-4.371l-1.885 2.86H3.31l-1.866-2.832v4.343H0V10zm8.303 0h5.051v1.31H9.767v1.359h3.157v1.31H9.767v1.407h3.635v1.31H8.303V10zm6.41 0h1.358l3.138 4.123V10h1.454v6.696H19.41l-3.243-4.257v4.257h-1.454V10zm10.35 6.802c-.899 0-1.607-.25-2.123-.747-.517-.497-.775-1.24-.775-2.229V10h1.473v3.788c0 .549.127.962.382 1.239.256.277.61.416 1.062.416.453 0 .807-.134 1.062-.402s.383-.67.383-1.205V10H28v3.779c0 .51-.069.953-.206 1.33-.137.376-.333.69-.588.942-.255.251-.564.44-.928.564a3.736 3.736 0 0 1-1.215.187z"
@@ -87,23 +90,39 @@
 <script>
 import $ from "jquery";
 import VuserTab from "./VuserTab";
+import VuserMenuOut from "./VuserMenuOut";
 import vClickOutside from "click-outside-vue3";
 export default {
   name: "Header",
   data() {
     return {
       show: false,
+      navOpen: false,
     };
+  },
+  computed: {
+    blackActive: function () {
+      return this.navOpen;
+    },
   },
   directives: {
     clickOutside: vClickOutside.directive,
   },
   methods: {
-    onClickOutside(value) {
-      if (typeof value === "boolean") this.show = value;
-      else {
-        this.show = !this.show;
-      }
+    offClickOutside() {
+      this.show = true;
+    },
+    onClickOutside() {
+      this.show = false;
+    },
+    onTogglenav() {
+      this.navOpen = true;
+    },
+    offTogglenav() {
+      this.navOpen = false;
+    },
+    blackToggle: function () {
+      this.navOpen = false;
     },
   },
   mounted() {
@@ -129,11 +148,23 @@ export default {
   },
   components: {
     VuserTab,
+    VuserMenuOut,
   },
 };
 </script>
 
 <style lang="scss" scoped>
+#tm-menu-mask {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -201,11 +232,11 @@ header {
         // desktop-userout 사용자 로그아웃상태
         .desktop-userout-button {
           margin-left: 0.7rem;
-          display: none;
+          // display: none;
         }
         // desktop-userin-wrap 사용자 로그인상태
         .desktop-userin-wrap {
-          // display: none;
+          display: none;
           .desktop-userin-inner {
             display: flex;
             align-items: center;
