@@ -6,5 +6,7 @@ const user = require("./user");
 router.use("/auth", auth);
 router.use("/user", authMiddleware);
 router.use("/user", user);
-
+router.use(function (req, res, next) {
+  next();
+});
 module.exports = router;

@@ -65,11 +65,27 @@ login = async function (req, res, next) {
   if (dbPassword === hashPassword) {
     console.log("비밀번호 일치");
     //토큰 발급
-    const token = jwt.sign({ username: req.body.email }, "secret_key", {
-      algorithm: "HS256",
-      expiresIn: "7d",
-    });
-    res.status(200).json({ status: true, token: token });
+    const token = jwt.sign(
+      { username: req.body.email },
+      process.env.JWTSECRET_KEY,
+      {
+        algorithm: "HS256",
+        expiresIn: "1m",
+      }
+    );
+
+    const refresh_token = jwt.sign(
+      { username: req.body.email },
+      process.env.REF_JWTSECRET_KEY,
+      {
+        algorithm: "HS256",
+        expiresIn: "30d",
+      }
+    );
+
+    res
+      .status(200)
+      .json({ status: true, token: token, refresh_token: refresh_token });
   } else {
     console.log("비밀번호 불일치");
     res.redirect("/user/login");
