@@ -1,7 +1,7 @@
 <template>
-  <Header />
+  <Header v-if="!$route.meta.hideHeader" />
   <router-view />
-  <Footer />
+  <Footer v-if="!$route.meta.hideFooter" />
 </template>
 
 <script>
@@ -25,5 +25,8 @@ export default {
 body {
   font-size: 1rem;
   font-family: "Noto Sans KR", sans-serif;
+  button {
+    font-family: "Noto Sans KR", sans-serif;
+  }
 }
 </style>
