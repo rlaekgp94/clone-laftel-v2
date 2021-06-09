@@ -20,6 +20,9 @@ const routes = [
     path: "/login/api-login",
     name: "api-login",
     component: TheApiLogin,
+    meta: { hideHeader: true, hideFooter: true },
+  },
+  {
     path: "/login/email-join",
     name: "email-join",
     component: TheEmailJoin,
