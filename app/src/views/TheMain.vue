@@ -40,7 +40,7 @@ export default {
 }
 
 .mainSlideTitle {
-  width: 95vw;
+  width: 93.5vw;
   margin: 0 auto;
   font-size: 1.75rem;
   font-weight: 700;
@@ -52,11 +52,18 @@ export default {
 // tablet
 @media screen and (max-width: 1024px) {
   .mainSlideTitle {
+    width: 95vw;
     font-size: 1.35rem;
+    line-height: 2rem;
+    height: auto;
   }
 }
 
+//mobile 480px기준
 @media screen and (max-width: 768px) {
+  .slide-index {
+    margin: 2rem 0;
+  }
   .mainSlideTitle {
     width: 90vw;
   }

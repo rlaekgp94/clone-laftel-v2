@@ -93,7 +93,7 @@ export default {
 }
 
 .swiper-container {
-  width: 95vw;
+  width: 93.5vw;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -120,6 +120,7 @@ export default {
     width: 100%;
   }
   .slide-thumbnail-title {
+    letter-spacing: -0.05rem;
     height: 4rem;
     font-size: 1.1rem;
     line-height: 1.5rem;
@@ -143,19 +144,19 @@ export default {
 }
 
 .swiper-button-prev-unique {
-  left: -2.5rem;
+  left: calc(-50vw + 50%);
 }
 .swiper-button-next-unique {
-  right: -2.5rem;
+  right: calc(-50vw + 50%);
 }
 .swiper-button-prev-unique,
 .swiper-button-next-unique {
-  height: 10.4rem;
+  height: 10.5rem;
   position: absolute;
   top: 0;
   z-index: 2;
   cursor: pointer;
-  width: 2rem;
+  width: 3.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,13 +176,11 @@ export default {
 
 // tablet
 @media screen and (max-width: 1024px) {
-  .swiper-container {
-    margin-left: 1rem;
+  #mainNewWorkSlide {
+    height: 12.5rem;
   }
-  .swiper-slide {
-    .slide-thumbnail-title {
-      font-size: 0.875rem;
-    }
+  .swiper-container {
+    width: 95vw;
   }
 
   .swiper-button-prev-unique,
@@ -192,10 +191,8 @@ export default {
 
 //mobile 480px기준
 @media screen and (max-width: 768px) {
-  .swiper-slide {
-    .slide-thumbnail-title {
-      font-size: 0.75rem;
-    }
+  .swiper-container {
+    width: 90vw;
   }
 }
 </style>

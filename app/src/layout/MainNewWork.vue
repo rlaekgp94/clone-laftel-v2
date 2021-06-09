@@ -1,7 +1,7 @@
 <template>
   <div id="MainNewWork">
     <div class="tab-list-wrap">
-      <h2 class="mainSlideTitle">요일별 신작</h2>
+      <h2 class="newWorkTitle">요일별 신작</h2>
       <div class="tab-list-button-wrap">
         <ul class="tab-list-button">
           <li class="tab-link current" data-tab="tab-mon">월</li>
@@ -84,16 +84,18 @@ export default {
   height: 100%;
 }
 
-.mainSlideTitle {
-  width: 95vw;
+.newWorkTitle {
+  width: 93.5vw;
   margin: 0 auto;
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.05rem;
+  margin-bottom: 0.5rem;
+  height: 2rem;
 }
 
 .tab-list-button-wrap {
-  width: 95vw;
+  width: 93.5vw;
   margin: 1rem auto;
 }
 
@@ -131,8 +133,15 @@ export default {
   #MainNewWork {
     margin: 1.5rem 0;
   }
-  .mainSlideTitle {
+  .newWorkTitle {
+    width: 95vw;
     font-size: 1.35rem;
+    line-height: 2rem;
+    height: auto;
+  }
+
+  .tab-list-button-wrap {
+    width: 95vw;
   }
 
   .tab-list-button {
@@ -148,6 +157,10 @@ export default {
 
 //mobile 480px기준
 @media screen and (max-width: 768px) {
+  .tab-list-button-wrap {
+    width: 90vw;
+  }
+
   .tab-list-button {
     width: 28rem;
     .tab-link {
@@ -158,11 +171,7 @@ export default {
     }
   }
 
-  .tab-list-button-wrap {
-    width: 90vw;
-  }
-
-  .mainSlideTitle {
+  .newWorkTitle {
     width: 90vw;
   }
 }
