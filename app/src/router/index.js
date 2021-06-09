@@ -4,6 +4,7 @@ import TheLogin from "../views/TheLogin.vue";
 import TheApiLogin from "../views/TheApiLogin.vue";
 import TheEmailJoin from "../views/TheEmailJoin.vue";
 import TheEmailJoinForms from "../views/TheEmailJoinForms.vue";
+import TheEmailJoinVerification from "../views/TheEmailJoinVerification.vue";
 
 const routes = [
   {
@@ -33,6 +34,12 @@ const routes = [
     path: "/login/email-join/email-join-forms",
     name: "email-join-forms",
     component: TheEmailJoinForms,
+    meta: { hideHeader: true, hideFooter: true },
+  },
+  {
+    path: "/login/email-join/email-join-forms/email-join-verification",
+    name: "email-join-verification",
+    component: TheEmailJoinVerification,
     meta: { hideHeader: true, hideFooter: true },
   },
 ];

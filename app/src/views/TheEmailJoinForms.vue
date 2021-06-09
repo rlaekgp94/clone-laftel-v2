@@ -48,7 +48,7 @@
               />
             </div>
           </div>
-          <router-link to="/">
+          <router-link :to="{ name: 'email-join-verification' }">
             <button :disabled="disabledActive" type="submit" class="btn-next">
               다음
             </button>
