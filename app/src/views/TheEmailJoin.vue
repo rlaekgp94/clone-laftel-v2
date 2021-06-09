@@ -82,9 +82,11 @@
             </li>
           </ul>
         </div>
-        <button :disabled="selected < 3" type="submit" class="btn-next">
-          다음
-        </button>
+        <router-link :to="{ name: 'email-join-forms' }">
+          <button :disabled="selected < 3" type="submit" class="btn-next">
+            다음
+          </button></router-link
+        >
       </div>
     </div>
   </div>
