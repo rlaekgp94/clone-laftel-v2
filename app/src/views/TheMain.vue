@@ -36,7 +36,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .slide-index {
-  margin: 3rem 0;
+  margin: 4rem 0;
 }
 
 .mainSlideTitle {
