@@ -1,5 +1,5 @@
 <template>
-  <div class="mainNewWorkSlide">
+  <div id="mainNewWorkSlide">
     <div id="mainNewWorkWrap" v-once class="swiper-container">
       <div class="swiper-wrapper">
         <div
@@ -18,26 +18,27 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="swiper-button-prev-unique">
-      <svg width="40" height="40" class="prev-icon">
-        <path
-          d="M10.6048 36.0619C11.4113 36.8684 12.7187 36.8684 13.5252 36.0619L28.1268 21.4602C28.9333 20.6538 28.9333 19.3463 28.1268 18.5399L13.5252 3.93824C12.7187 3.1318 11.4113 3.13181 10.6048 3.93824C9.7984 4.74467 9.79839 6.05213 10.6048 6.85857L23.7463 20.0001L10.6048 33.1416C9.79839 33.948 9.79839 35.2555 10.6048 36.0619Z"
-        ></path>
-      </svg>
-    </div>
-    <div class="swiper-button-next-unique">
-      <svg width="40" height="40" class="next-icon">
-        <path
-          d="M10.6048 36.0619C11.4113 36.8684 12.7187 36.8684 13.5252 36.0619L28.1268 21.4602C28.9333 20.6538 28.9333 19.3463 28.1268 18.5399L13.5252 3.93824C12.7187 3.1318 11.4113 3.13181 10.6048 3.93824C9.7984 4.74467 9.79839 6.05213 10.6048 6.85857L23.7463 20.0001L10.6048 33.1416C9.79839 33.948 9.79839 35.2555 10.6048 36.0619Z"
-        ></path>
-      </svg>
+      <div id="swiper-navigation">
+        <div class="swiper-button-prev-unique">
+          <svg width="40" height="40" class="prev-icon">
+            <path
+              d="M10.6048 36.0619C11.4113 36.8684 12.7187 36.8684 13.5252 36.0619L28.1268 21.4602C28.9333 20.6538 28.9333 19.3463 28.1268 18.5399L13.5252 3.93824C12.7187 3.1318 11.4113 3.13181 10.6048 3.93824C9.7984 4.74467 9.79839 6.05213 10.6048 6.85857L23.7463 20.0001L10.6048 33.1416C9.79839 33.948 9.79839 35.2555 10.6048 36.0619Z"
+            ></path>
+          </svg>
+        </div>
+        <div class="swiper-button-next-unique">
+          <svg width="40" height="40" class="next-icon">
+            <path
+              d="M10.6048 36.0619C11.4113 36.8684 12.7187 36.8684 13.5252 36.0619L28.1268 21.4602C28.9333 20.6538 28.9333 19.3463 28.1268 18.5399L13.5252 3.93824C12.7187 3.1318 11.4113 3.13181 10.6048 3.93824C9.7984 4.74467 9.79839 6.05213 10.6048 6.85857L23.7463 20.0001L10.6048 33.1416C9.79839 33.948 9.79839 35.2555 10.6048 36.0619Z"
+            ></path>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import $ from "jquery";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import Vthumbnail from "../components/Vthumbnail";
@@ -50,31 +51,14 @@ export default {
   },
   props: ["newWorkItems", "newWorkDays"],
   mounted() {
-    const navigation = $(
-        ".mainNewWorkSlide .swiper-button-prev-unique,.mainNewWorkSlide .swiper-button-next-unique"
-      ),
-      slideWrap = $(".mainNewWorkSlide");
-
-    navigation.hide();
-    slideWrap.hover(
-      function () {
-        navigation.fadeIn();
-      },
-      function () {
-        navigation.fadeOut();
-      }
-    );
-
-    new Swiper(".mainNewWorkSlide .swiper-container", {
-      //   slidesPerView: 7,
+    new Swiper("#mainNewWorkSlide .swiper-container", {
       spaceBetween: 8,
-      // slidesPerGroup: 6,
       speed: 1200,
       // loop: true,
       // loopFillGroupWithBlank: true,
       navigation: {
-        nextEl: ".mainNewWorkSlide .swiper-button-next-unique",
-        prevEl: ".mainNewWorkSlide .swiper-button-prev-unique",
+        nextEl: "#swiper-navigation .swiper-button-next-unique",
+        prevEl: "#swiper-navigation .swiper-button-prev-unique",
       },
       observer: true,
       observeParents: true,
@@ -101,11 +85,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mainNewWorkSlide {
+#mainNewWorkSlide {
   width: 100%;
   height: 14rem;
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 .swiper-container {
@@ -114,6 +98,10 @@ export default {
   display: flex;
   flex-direction: column;
   overflow: visible;
+}
+
+#mainNewWorkSlide:hover #swiper-navigation {
+  display: block;
 }
 
 .swiper-wrapper {
@@ -140,11 +128,25 @@ export default {
   }
 }
 
+#swiper-navigation {
+  width: 100vw;
+  height: auto;
+  display: none;
+}
+
+.swiper-button-prev-unique.swiper-button-disabled {
+  opacity: 0;
+}
+
+.swiper-button-next-unique.swiper-button-disabled {
+  opacity: 0;
+}
+
 .swiper-button-prev-unique {
-  left: 0;
+  left: -2.5rem;
 }
 .swiper-button-next-unique {
-  right: 0;
+  right: -2.5rem;
 }
 .swiper-button-prev-unique,
 .swiper-button-next-unique {
@@ -184,7 +186,7 @@ export default {
 
   .swiper-button-prev-unique,
   .swiper-button-next-unique {
-    opacity: 0;
+    display: none;
   }
 }
 

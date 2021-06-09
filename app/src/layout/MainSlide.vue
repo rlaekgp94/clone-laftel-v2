@@ -1,28 +1,22 @@
 <template>
   <div id="mainSlide">
-    <div
-      id="mainSlideWrap"
-      v-once
-      class="swiper-container"
-      v-on:mouseover="navHover"
-    >
-      <h2 class="mainSlideTitle">ㅇㅇ</h2>
+    <div id="mainSlideWrap" class="swiper-container">
       <div class="swiper-wrapper">
         <div
           class="swiper-slide"
-          v-for="(item, index) in mainSlideItems"
-          :key="index"
+          v-for="(slide, indexContent) in laftelSlide.animation"
+          :key="indexContent"
         >
           <Vthumbnail
             class="slide-thumbnail-img"
             :style="{
-              backgroundImage: 'url(' + item.itemScr + ')',
+              backgroundImage: 'url(' + slide.itemScr + ')',
             }"
           />
-          <div class="slide-thumbnail-title">{{ item.itemTitle }}</div>
+          <div class="slide-thumbnail-title">{{ slide.itemTitle }}</div>
         </div>
       </div>
-      <div class="swiper-navigation" v-show="active">
+      <div id="swiper-navigation">
         <div class="swiper-button-prev-unique">
           <svg width="40" height="40" class="prev-icon">
             <path
@@ -43,48 +37,21 @@
 </template>
 
 <script>
-import $ from "jquery";
 import Swiper from "swiper/bundle";
 import "swiper/swiper-bundle.css";
 import Vthumbnail from "../components/Vthumbnail";
 export default {
   name: "MainSlide",
-  data() {
-    return {
-      mainSlideItems: this.slideItems[this.slide],
-      active: false,
-    };
-  },
-  props: ["slideItems", "slide"],
-  methods: {
-    navHover: function () {
-      this.active = !this.active;
-    },
-  },
+  props: { laftelSlide: Object },
   mounted() {
-    const navigation = $("#mainSlide .swiper-navigation"),
-      slideWrap = $("#mainSlide .swiper-container");
-
-    navigation.hide();
-
-    slideWrap.hover(
-      function () {
-        navigation.fadeIn();
-      },
-      function () {
-        navigation.fadeOut();
-      }
-    );
     new Swiper("#mainSlide .swiper-container", {
-      // slidesPerView: 7,
       spaceBetween: 8,
-      // slidesPerGroup: 6,
       speed: 1200,
       // loop: true,
       // loopFillGroupWithBlank: true,
       navigation: {
-        nextEl: ".swiper-navigation .swiper-button-next-unique",
-        prevEl: ".swiper-navigation .swiper-button-prev-unique",
+        nextEl: "#swiper-navigation .swiper-button-next-unique",
+        prevEl: "#swiper-navigation .swiper-button-prev-unique",
       },
       breakpoints: {
         "@0.50": {
@@ -111,18 +78,9 @@ export default {
 <style lang="scss" scoped>
 #mainSlide {
   width: 100%;
-  height: 15.5rem;
-  margin: 3rem 0;
+  height: 14rem;
   position: relative;
   overflow: hidden;
-}
-
-.mainSlideTitle {
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: -0.05rem;
-  margin-bottom: 0.5rem;
-  height: 2rem;
 }
 
 .swiper-container {
@@ -133,6 +91,10 @@ export default {
   overflow: visible;
 }
 
+#mainSlide:hover #swiper-navigation {
+  display: block;
+}
+
 .swiper-wrapper {
   width: 100%;
   height: 100%;
@@ -140,24 +102,37 @@ export default {
 
 .swiper-slide {
   width: 100%;
-  height: 12.5rem;
+  height: auto;
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   .slide-thumbnail-img {
     width: 100%;
   }
   .slide-thumbnail-title {
-    height: 2rem;
-    font-size: 1.15rem;
+    height: 4rem;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
     font-weight: 400;
     margin-top: 0.5rem;
   }
 }
-.swiper-navigation {
-  width: 100%;
+
+#swiper-navigation {
+  width: 100vw;
   height: auto;
+  display: none;
 }
+
+.swiper-button-prev-unique.swiper-button-disabled {
+  opacity: 0;
+}
+
+.swiper-button-next-unique.swiper-button-disabled {
+  opacity: 0;
+}
+
 .swiper-button-prev-unique {
   left: -2.5rem;
 }
@@ -168,7 +143,7 @@ export default {
 .swiper-button-next-unique {
   height: 10.4rem;
   position: absolute;
-  top: 2.25rem;
+  top: 0;
   z-index: 2;
   cursor: pointer;
   width: 2rem;
@@ -191,10 +166,6 @@ export default {
 
 // tablet
 @media screen and (max-width: 1024px) {
-  .mainSlideTitle {
-    font-size: 1.35rem;
-    margin-bottom: 0.25rem;
-  }
   .swiper-container {
     margin-left: 1rem;
   }
@@ -206,7 +177,7 @@ export default {
 
   .swiper-button-prev-unique,
   .swiper-button-next-unique {
-    opacity: 0;
+    display: none;
   }
 }
 

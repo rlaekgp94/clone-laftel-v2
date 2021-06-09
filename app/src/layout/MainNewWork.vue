@@ -2,15 +2,17 @@
   <div id="MainNewWork">
     <div class="tab-list-wrap">
       <h2 class="mainSlideTitle">요일별 신작</h2>
-      <ul class="tab-list-button">
-        <li class="tab-link current" data-tab="tab-mon">월</li>
-        <li class="tab-link" data-tab="tab-tues">화</li>
-        <li class="tab-link" data-tab="tab-wednes">수</li>
-        <li class="tab-link" data-tab="tab-thurs">목</li>
-        <li class="tab-link" data-tab="tab-fri">금</li>
-        <li class="tab-link" data-tab="tab-satur">토</li>
-        <li class="tab-link" data-tab="tab-sun">일</li>
-      </ul>
+      <div class="tab-list-button-wrap">
+        <ul class="tab-list-button">
+          <li class="tab-link current" data-tab="tab-mon">월</li>
+          <li class="tab-link" data-tab="tab-tues">화</li>
+          <li class="tab-link" data-tab="tab-wednes">수</li>
+          <li class="tab-link" data-tab="tab-thurs">목</li>
+          <li class="tab-link" data-tab="tab-fri">금</li>
+          <li class="tab-link" data-tab="tab-satur">토</li>
+          <li class="tab-link" data-tab="tab-sun">일</li>
+        </ul>
+      </div>
 
       <div id="tab-mon" class="tab-content current">
         <VnewWorkslide :newWorkItems="newWorkItems" :newWorkDays="'mon'" />
@@ -83,15 +85,20 @@ export default {
 }
 
 .mainSlideTitle {
+  width: 95vw;
+  margin: 0 auto;
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.05rem;
-  margin-left: 2.5rem;
+}
+
+.tab-list-button-wrap {
+  width: 95vw;
+  margin: 1rem auto;
 }
 
 .tab-list-button {
   width: 37.5rem;
-  margin: 1rem 0 1rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -126,12 +133,10 @@ export default {
   }
   .mainSlideTitle {
     font-size: 1.35rem;
-    margin-left: 1rem;
   }
 
   .tab-list-button {
     width: 25rem;
-    margin: 1rem 0 1rem 1rem;
     .tab-link {
       font-size: 1.25rem;
       width: 3rem;
@@ -145,13 +150,20 @@ export default {
 @media screen and (max-width: 768px) {
   .tab-list-button {
     width: 28rem;
-    margin: 1rem 0 1rem 1rem;
     .tab-link {
       font-size: 1.25rem;
       width: 3.25rem;
       height: 3.25rem;
       line-height: 3.25rem;
     }
+  }
+
+  .tab-list-button-wrap {
+    width: 90vw;
+  }
+
+  .mainSlideTitle {
+    width: 90vw;
   }
 }
 </style>
