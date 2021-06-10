@@ -1,7 +1,7 @@
 <template>
   <div id="theApiLogin">
     <div class="api-login-wrap">
-      <rouer-link to="/">
+      <router-link to="/">
         <svg viewBox="0 0 72 24" class="main-link-logo">
           <g transform="translate(3,4)" width="65.3333" height="16">
             <path
@@ -24,7 +24,7 @@
             ></path>
           </g>
         </svg>
-      </rouer-link>
+      </router-link>
       <div class="api-login-button-wrap">
         <router-link to="#" class="api-login-button">
           <svg viewBox="0 0 24 24" class="api-icon">

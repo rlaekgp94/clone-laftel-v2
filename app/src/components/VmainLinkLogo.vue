@@ -1,5 +1,5 @@
 <template>
-  <rouer-link to="/">
+  <router-link to="/">
     <svg viewBox="0 0 72 24" class="main-link-logo">
       <g transform="translate(3,4)" width="65.3333" height="16">
         <path
@@ -22,7 +22,7 @@
         ></path>
       </g>
     </svg>
-  </rouer-link>
+  </router-link>
 </template>
 
 <script>
@@ -35,5 +35,6 @@ export default {};
   height: 2.75rem;
   fill: #816bff;
   margin-bottom: 2.25rem;
+  cursor: pointer;
 }
 </style>
