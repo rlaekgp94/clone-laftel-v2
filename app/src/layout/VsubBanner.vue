@@ -19,10 +19,10 @@
 </template>
 <style lang="scss" scoped>
 #subBanner {
-  width: 95vw;
+  width: 93.5vw;
   height: 7rem;
   background-color: rgb(240, 237, 255);
-  margin: 2rem auto 2rem;
+  margin: 2rem auto 4rem;
   border-radius: 0.25rem;
 }
 

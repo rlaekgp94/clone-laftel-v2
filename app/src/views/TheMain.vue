@@ -12,10 +12,7 @@
   </div>
 </template>
 <script>
-import MainBanner from "../layout/MainBanner";
-import MainNewWork from "../layout/MainNewWork";
-import MainSlide from "../layout/MainSlide";
-import VsubBanner from "../layout/VsubBanner";
+import { defineAsyncComponent } from "vue";
 // import MainSlideList from "../assets/data/MainSlideList.json";
 import slideList from "../assets/data/laftelslide.json";
 export default {
@@ -27,10 +24,10 @@ export default {
     };
   },
   components: {
-    MainBanner,
-    MainNewWork,
-    MainSlide,
-    VsubBanner,
+    MainBanner: defineAsyncComponent(() => import("../layout/MainBanner")),
+    MainNewWork: defineAsyncComponent(() => import("../layout/MainNewWork")),
+    MainSlide: defineAsyncComponent(() => import("../layout/MainSlide")),
+    VsubBanner: defineAsyncComponent(() => import("../layout/VsubBanner")),
   },
 };
 </script>

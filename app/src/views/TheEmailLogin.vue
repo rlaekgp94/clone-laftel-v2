@@ -33,7 +33,7 @@
             </div>
           </div>
           <div class="find-pw-link">
-            <router-link to="/find-password">비밀번호 찾기</router-link>
+            <router-link to="/">비밀번호 찾기</router-link>
           </div>
           <button :disabled="disabledActive" type="submit" class="btn-area">
             로그인
