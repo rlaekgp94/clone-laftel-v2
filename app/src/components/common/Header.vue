@@ -139,7 +139,7 @@ export default {
         navIcon.css("fill", "#fff");
         tmLogo.css("display", "none");
       } else {
-        nav.css({ background: "#fff", "box-shadow": "0 0 0.1875 #75757556" });
+        nav.css({ background: "#fff", "box-shadow": "0 0 0 0.5px #95959565" });
         navText.css("color", "#000");
         navIcon.css("fill", "#000");
         tmLogo.css("display", "block");

@@ -1,7 +1,7 @@
 <template>
   <div id="theLogin">
     <div class="login-wrap">
-      <rouer-link to="/">
+      <router-link to="/">
         <svg viewBox="0 0 72 24" class="main-link-logo">
           <g transform="translate(3,4)" width="65.3333" height="16">
             <path
@@ -24,7 +24,7 @@
             ></path>
           </g>
         </svg>
-      </rouer-link>
+      </router-link>
       <p class="login-view-title">
         신작부터 역대 인기 작품까지<br />
         애니메이션을 한 곳에서 편-안하게 즐기세요!

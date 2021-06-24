@@ -1,20 +1,19 @@
 <template>
-<div id="app">
-  <Header v-if="!$route.meta.hideHeader" />
-  <router-view />
-  <Footer v-if="!$route.meta.hideFooter" />
+  <div id="app">
+    <Header v-if="!$route.meta.hideHeader" />
+    <router-view />
+    <Footer v-if="!$route.meta.hideFooter" />
   </div>
 </template>
 
 <script>
-import Header from "./components/common/Header";
-import Footer from "./components/common/Footer";
+import { defineAsyncComponent } from "vue";
 export default {
   name: "app",
   components: {
-    Header,
-    Footer,
-  },
+    Header: defineAsyncComponent(() => import("./components/common/Header")),
+    Footer: defineAsyncComponent(() => import("./components/common/Footer"))
+  }
 };
 </script>
 

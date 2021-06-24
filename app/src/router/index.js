@@ -1,52 +1,45 @@
 import { createRouter, createWebHistory } from "vue-router";
-import TheMain from "../views/TheMain.vue";
-import TheLogin from "../views/TheLogin.vue";
-import TheApiLogin from "../views/TheApiLogin.vue";
-import TheEmailLogin from "../views/TheEmailLogin.vue";
-import TheEmailJoin from "../views/TheEmailJoin.vue";
-import TheEmailJoinForms from "../views/TheEmailJoinForms.vue";
-import TheEmailJoinVerification from "../views/TheEmailJoinVerification.vue";
 
 const routes = [
   {
     path: "/",
     name: "main",
-    component: TheMain,
+    component: () => import("../views/TheMain.vue"),
   },
   {
     path: "/login",
     name: "login",
-    component: TheLogin,
+    component: () => import("../views/TheLogin.vue"),
     meta: { hideHeader: true, hideFooter: true },
   },
   {
     path: "/login/email-login",
     name: "email-login",
-    component: TheEmailLogin,
+    component: () => import("../views/TheEmailLogin.vue"),
     meta: { hideHeader: true, hideFooter: true },
   },
   {
     path: "/login/api-login",
     name: "api-login",
-    component: TheApiLogin,
+    component: () => import("../views/TheApiLogin.vue"),
     meta: { hideHeader: true, hideFooter: true },
   },
   {
     path: "/login/email-join",
     name: "email-join",
-    component: TheEmailJoin,
+    component: () => import("../views/TheEmailJoin.vue"),
     meta: { hideHeader: true, hideFooter: true },
   },
   {
     path: "/login/email-join/email-join-forms",
     name: "email-join-forms",
-    component: TheEmailJoinForms,
+    component: () => import("../views/TheEmailJoinForms.vue"),
     meta: { hideHeader: true, hideFooter: true },
   },
   {
     path: "/login/email-join/email-join-forms/email-join-verification",
     name: "email-join-verification",
-    component: TheEmailJoinVerification,
+    component: () => import("../views/TheEmailJoinVerification.vue"),
     meta: { hideHeader: true, hideFooter: true },
   },
 ];

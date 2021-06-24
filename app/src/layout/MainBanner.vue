@@ -223,7 +223,7 @@ export default {
     margin: 0 0 1.75rem 0.5rem;
   }
   .banner-title-button {
-    font-weight: 800;
+    font-weight: 600;
     font-size: 1.4rem;
     text-align: center;
     letter-spacing: -0.1rem;
