@@ -1,7 +1,9 @@
 <template>
+<div id="app">
   <Header v-if="!$route.meta.hideHeader" />
   <router-view />
   <Footer v-if="!$route.meta.hideFooter" />
+  </div>
 </template>
 
 <script>
