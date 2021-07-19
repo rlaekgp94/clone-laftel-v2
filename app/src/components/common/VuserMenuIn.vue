@@ -80,9 +80,9 @@ export default {
   data() {
     return {
       UserId: "root_user",
-      UserPoint: "100",
+      UserPoint: "100"
     };
-  },
+  }
 };
 </script>
 

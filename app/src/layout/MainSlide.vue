@@ -10,7 +10,7 @@
           <Vthumbnail
             class="slide-thumbnail-img"
             :style="{
-              backgroundImage: 'url(' + slide.itemScr + ')',
+              backgroundImage: 'url(' + slide.itemScr + ')'
             }"
           />
           <div class="slide-thumbnail-title">{{ slide.itemTitle }}</div>
@@ -51,27 +51,27 @@ export default {
       // loopFillGroupWithBlank: true,
       navigation: {
         nextEl: "#swiper-navigation .swiper-button-next-unique",
-        prevEl: "#swiper-navigation .swiper-button-prev-unique",
+        prevEl: "#swiper-navigation .swiper-button-prev-unique"
       },
       breakpoints: {
         "@0.50": {
           slidesPerView: 1.75,
-          slidesPerGroup: 1,
+          slidesPerGroup: 1
         },
         "@1.00": {
           slidesPerView: 3.5,
-          slidesPerGroup: 3,
+          slidesPerGroup: 3
         },
         "@1.50": {
           slidesPerView: 6,
-          slidesPerGroup: 6,
-        },
-      },
+          slidesPerGroup: 6
+        }
+      }
     });
   },
   components: {
-    Vthumbnail,
-  },
+    Vthumbnail
+  }
 };
 </script>
 

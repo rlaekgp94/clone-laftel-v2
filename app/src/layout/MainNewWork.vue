@@ -53,11 +53,11 @@ export default {
   name: "MainNewWork",
   data() {
     return {
-      newWorkItems: newWorkList.newWork,
+      newWorkItems: newWorkList.newWork
     };
   },
   components: {
-    VnewWorkslide,
+    VnewWorkslide
   },
   mounted() {
     $("ul.tab-list-button li").click(function () {
@@ -69,7 +69,7 @@ export default {
       $(this).addClass("current");
       $("#" + tab_id).addClass("current");
     });
-  },
+  }
 };
 </script>
 
@@ -162,12 +162,12 @@ export default {
   }
 
   .tab-list-button {
-    width: 28rem;
+    width: auto;
     .tab-link {
       font-size: 1.25rem;
-      width: 3.25rem;
-      height: 3.25rem;
-      line-height: 3.25rem;
+      width: 2.85rem;
+      height: 2.85rem;
+      line-height: 2.85rem;
     }
   }
 

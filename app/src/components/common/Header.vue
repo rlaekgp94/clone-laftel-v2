@@ -97,16 +97,16 @@ export default {
   data() {
     return {
       show: false,
-      navOpen: false,
+      navOpen: false
     };
   },
   computed: {
     blackActive: function () {
       return this.navOpen;
-    },
+    }
   },
   directives: {
-    clickOutside: vClickOutside.directive,
+    clickOutside: vClickOutside.directive
   },
   methods: {
     offClickOutside() {
@@ -123,7 +123,7 @@ export default {
     },
     blackToggle: function () {
       this.navOpen = false;
-    },
+    }
   },
   mounted() {
     let nav = $("header"),
@@ -148,8 +148,8 @@ export default {
   },
   components: {
     VuserTab,
-    VuserMenuOut,
-  },
+    VuserMenuOut
+  }
 };
 </script>
 
