@@ -73,7 +73,7 @@ export default {
     btn.click(function () {
       tap.toggle();
     });
-  },
+  }
 };
 </script>
 

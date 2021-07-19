@@ -1,59 +1,6 @@
 {
   "laftelSlide": [
     {
-      "slideTitle": "모험과 신비가 가득한 나라, 우리가 꿈꾸던 그곳~♬",
-      "animation": [
-        {
-          "itemTitle": "(더빙) 원피스 1기",
-          "itemScr": "https://thumbnail.laftel.net/items/full/1392b084-df5f-4a6e-8e83-97a7bb55eefc.jpg?w=380&webp=0&c=0%2C56%2C600%2C394"
-        },
-        {
-          "itemTitle": "슬레이어즈",
-          "itemScr": "https://thumbnail.laftel.net/items/full/e6722e2e-e608-4445-8093-d25b809c0877.jpg?w=380&webp=0&c=0%2C222%2C640%2C582"
-        },
-        {
-          "itemTitle": "(자막) 극장판 원피스 1기 : 황금의 대해적 우난",
-          "itemScr": "https://thumbnail.laftel.net/items/full/86000028-a57e-47d5-bb26-e8b103d841c3.jpg?w=380&webp=1&c=0%2C180%2C600%2C518"
-        },
-        {
-          "itemTitle": "드래곤 퀘스트 : 다이의 대모험 part 1",
-          "itemScr": "https://thumbnail.laftel.net/items/full/92b8f27b-3a3a-457e-b245-718336306651.jpg?w=380&webp=1&c=0%2C1271%2C4549%2C3832"
-        },
-        {
-          "itemTitle": "노 게임 노 라이프 - 판권 부활",
-          "itemScr": "https://thumbnail.laftel.net/items/full/49ae7de5-0176-40af-8c44-77422cb4777b.jpg?w=380&webp=1&c=0%2C243%2C624%2C594"
-        },
-        {
-          "itemTitle": "일곱 개의 대죄 (1기)",
-          "itemScr": "https://thumbnail.laftel.net/items/full/8855f387-d406-42e9-958c-4526af3f43ab.jpg?w=380&webp=1&c=0%2C273%2C624%2C624"
-        },
-        {
-          "itemTitle": "던전에서 만남을 추구하면 안 되는 걸까",
-          "itemScr": "https://thumbnail.laftel.net/items/full/fc73baca-15e7-4c33-8218-09a8ca35e781.jpg?w=380&webp=0&c=0%2C135%2C624%2C486"
-        },
-        {
-          "itemTitle": "육화의 용사",
-          "itemScr": "https://thumbnail.laftel.net/items/full/ce446b9c-70fc-48d8-a143-8514a446e266.jpg?w=380&webp=0&c=0%2C309%2C1161%2C961"
-        },
-        {
-          "itemTitle": "테일즈 오브 제스티리아 더 크로스",
-          "itemScr": "https://thumbnail.laftel.net/items/full/238659d9-a981-4c43-ac30-3c29382c60ce.jpg?w=380&webp=1&c=0%2C39%2C624%2C444"
-        },
-        {
-          "itemTitle": "스낵월드",
-          "itemScr": "https://thumbnail.laftel.net/items/full/70576423-8b0b-4012-9866-8264afddb2d1.jpg?w=380&webp=1&c=0%2C206%2C480%2C476"
-        },
-        {
-          "itemTitle": "소드 오라토리아",
-          "itemScr": "https://thumbnail.laftel.net/items/full/d1a6f151-bc42-4437-b423-f7af21f96500.jpg?w=380&webp=1&c=0%2C219%2C624%2C624"
-        },
-        {
-          "itemTitle": "(더빙) 포켓몬스터 썬&문",
-          "itemScr": "https://thumbnail.laftel.net/items/full/7bd824a6-454e-4cf8-b6e5-dbf9fa4bb0c2.jpg?w=380&webp=0&c=0%2C126%2C600%2C463"
-        }
-      ]
-    },
-    {
       "slideTitle": "오리지널 극장판 애니메이션 TOP 10",
       "animation": [
         {
@@ -247,6 +194,59 @@
         {
           "itemTitle": "(더빙) 내 이야기!!",
           "itemScr": "https://thumbnail.laftel.net/items/full/0efd34d4-ff88-4635-a0f8-9f3ab86b914d.jpg?w=380&webp=0&c=0%2C241%2C600%2C578"
+        }
+      ]
+    },
+    {
+      "slideTitle": "모험과 신비가 가득한 나라, 우리가 꿈꾸던 그곳~♬",
+      "animation": [
+        {
+          "itemTitle": "(더빙) 원피스 1기",
+          "itemScr": "https://thumbnail.laftel.net/items/full/1392b084-df5f-4a6e-8e83-97a7bb55eefc.jpg?w=380&webp=0&c=0%2C56%2C600%2C394"
+        },
+        {
+          "itemTitle": "슬레이어즈",
+          "itemScr": "https://thumbnail.laftel.net/items/full/e6722e2e-e608-4445-8093-d25b809c0877.jpg?w=380&webp=0&c=0%2C222%2C640%2C582"
+        },
+        {
+          "itemTitle": "(자막) 극장판 원피스 1기 : 황금의 대해적 우난",
+          "itemScr": "https://thumbnail.laftel.net/items/full/86000028-a57e-47d5-bb26-e8b103d841c3.jpg?w=380&webp=1&c=0%2C180%2C600%2C518"
+        },
+        {
+          "itemTitle": "드래곤 퀘스트 : 다이의 대모험 part 1",
+          "itemScr": "https://thumbnail.laftel.net/items/full/92b8f27b-3a3a-457e-b245-718336306651.jpg?w=380&webp=1&c=0%2C1271%2C4549%2C3832"
+        },
+        {
+          "itemTitle": "노 게임 노 라이프 - 판권 부활",
+          "itemScr": "https://thumbnail.laftel.net/items/full/49ae7de5-0176-40af-8c44-77422cb4777b.jpg?w=380&webp=1&c=0%2C243%2C624%2C594"
+        },
+        {
+          "itemTitle": "일곱 개의 대죄 (1기)",
+          "itemScr": "https://thumbnail.laftel.net/items/full/8855f387-d406-42e9-958c-4526af3f43ab.jpg?w=380&webp=1&c=0%2C273%2C624%2C624"
+        },
+        {
+          "itemTitle": "던전에서 만남을 추구하면 안 되는 걸까",
+          "itemScr": "https://thumbnail.laftel.net/items/full/fc73baca-15e7-4c33-8218-09a8ca35e781.jpg?w=380&webp=0&c=0%2C135%2C624%2C486"
+        },
+        {
+          "itemTitle": "육화의 용사",
+          "itemScr": "https://thumbnail.laftel.net/items/full/ce446b9c-70fc-48d8-a143-8514a446e266.jpg?w=380&webp=0&c=0%2C309%2C1161%2C961"
+        },
+        {
+          "itemTitle": "테일즈 오브 제스티리아 더 크로스",
+          "itemScr": "https://thumbnail.laftel.net/items/full/238659d9-a981-4c43-ac30-3c29382c60ce.jpg?w=380&webp=1&c=0%2C39%2C624%2C444"
+        },
+        {
+          "itemTitle": "스낵월드",
+          "itemScr": "https://thumbnail.laftel.net/items/full/70576423-8b0b-4012-9866-8264afddb2d1.jpg?w=380&webp=1&c=0%2C206%2C480%2C476"
+        },
+        {
+          "itemTitle": "소드 오라토리아",
+          "itemScr": "https://thumbnail.laftel.net/items/full/d1a6f151-bc42-4437-b423-f7af21f96500.jpg?w=380&webp=1&c=0%2C219%2C624%2C624"
+        },
+        {
+          "itemTitle": "(더빙) 포켓몬스터 썬&문",
+          "itemScr": "https://thumbnail.laftel.net/items/full/7bd824a6-454e-4cf8-b6e5-dbf9fa4bb0c2.jpg?w=380&webp=0&c=0%2C126%2C600%2C463"
         }
       ]
     },

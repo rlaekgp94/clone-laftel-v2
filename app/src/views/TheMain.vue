@@ -13,22 +13,20 @@
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
-// import MainSlideList from "../assets/data/MainSlideList.json";
 import slideList from "../assets/data/laftelslide.json";
 export default {
   name: "TheMain",
   data() {
     return {
-      // slideItems: MainSlideList.MainSlide,
-      slideItems: slideList.laftelSlide,
+      slideItems: slideList.laftelSlide
     };
   },
   components: {
     MainBanner: defineAsyncComponent(() => import("../layout/MainBanner")),
     MainNewWork: defineAsyncComponent(() => import("../layout/MainNewWork")),
     MainSlide: defineAsyncComponent(() => import("../layout/MainSlide")),
-    VsubBanner: defineAsyncComponent(() => import("../layout/VsubBanner")),
-  },
+    VsubBanner: defineAsyncComponent(() => import("../layout/VsubBanner"))
+  }
 };
 </script>
 <style lang="scss" scoped>

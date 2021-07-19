@@ -134,20 +134,20 @@ export default {
       effect: "fade",
       autoplay: {
         delay: 5000,
-        disableOnInteraction: false,
+        disableOnInteraction: false
       },
       pagination: {
         el: ".swiper-pagination",
-        clickable: true,
+        clickable: true
       },
       paginationType: "custom",
       // Navigation arrows
       navigation: {
         nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+        prevEl: ".swiper-button-prev"
+      }
     });
-  },
+  }
 };
 </script>
 

@@ -10,7 +10,7 @@
           <Vthumbnail
             class="slide-thumbnail-img"
             :style="{
-              backgroundImage: 'url(' + item.itemScr + ')',
+              backgroundImage: 'url(' + item.itemScr + ')'
             }"
           />
           <div class="slide-thumbnail-title">
@@ -46,7 +46,7 @@ export default {
   name: "MainSlide",
   data() {
     return {
-      laftelItems: this.newWorkItems[this.newWorkDays],
+      laftelItems: this.newWorkItems[this.newWorkDays]
     };
   },
   props: ["newWorkItems", "newWorkDays"],
@@ -54,33 +54,31 @@ export default {
     new Swiper("#mainNewWorkSlide .swiper-container", {
       spaceBetween: 8,
       speed: 1200,
-      // loop: true,
-      // loopFillGroupWithBlank: true,
       navigation: {
         nextEl: "#swiper-navigation .swiper-button-next-unique",
-        prevEl: "#swiper-navigation .swiper-button-prev-unique",
+        prevEl: "#swiper-navigation .swiper-button-prev-unique"
       },
       observer: true,
       observeParents: true,
       breakpoints: {
         "@0.50": {
           slidesPerView: 1.75,
-          slidesPerGroup: 1,
+          slidesPerGroup: 1
         },
         "@1.00": {
           slidesPerView: 3.5,
-          slidesPerGroup: 3,
+          slidesPerGroup: 3
         },
         "@1.50": {
           slidesPerView: 6,
-          slidesPerGroup: 6,
-        },
-      },
+          slidesPerGroup: 6
+        }
+      }
     });
   },
   components: {
-    Vthumbnail,
-  },
+    Vthumbnail
+  }
 };
 </script>
 

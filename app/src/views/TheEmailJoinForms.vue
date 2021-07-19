@@ -66,22 +66,22 @@ export default {
     return {
       id: "",
       pw: "",
-      pwcon: "",
+      pwcon: ""
       //   necessary: [],
     };
   },
   computed: {
     disabledActive: function () {
-      if (this.id > 4 && this.pw > 4 && this.pwcon > 4) {
+      if (this.id.length > 4 && this.pw.length > 4 && this.pwcon.length > 4) {
         return false;
       } else {
         return true;
       }
-    },
+    }
   },
   components: {
-    VmainLinkLogo,
-  },
+    VmainLinkLogo
+  }
 };
 </script>
 
