@@ -102,21 +102,21 @@ export default {
           id: "1",
           agreeLink: "라프텔 이용약관 ",
           agreeText: "동의",
-          Item: "필수",
+          Item: "필수"
         },
         {
           id: "2",
           agreeLink: "개인정보 수집 및 이용",
           agreeText: "에 대한 안내",
-          Item: "필수",
+          Item: "필수"
         },
         {
           id: "3",
           agreeText: "맞춤 할인 및 이벤트 소식 메일 수신",
-          Item: "선택",
-        },
+          Item: "선택"
+        }
       ],
-      selected: [],
+      selected: []
     };
   },
   computed: {
@@ -134,12 +134,12 @@ export default {
         }
 
         this.selected = selected;
-      },
-    },
+      }
+    }
   },
   components: {
-    VmainLinkLogo,
-  },
+    VmainLinkLogo
+  }
 };
 </script>
 

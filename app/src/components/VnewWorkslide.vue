@@ -61,8 +61,12 @@ export default {
       observer: true,
       observeParents: true,
       breakpoints: {
+        "@0.25": {
+          slidesPerView: 1.25,
+          slidesPerGroup: 1
+        },
         "@0.50": {
-          slidesPerView: 1.75,
+          slidesPerView: 1.5,
           slidesPerGroup: 1
         },
         "@1.00": {
